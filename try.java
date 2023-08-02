@@ -1,49 +1,56 @@
-
-
-
-class Student{
-String name;
-int age;
-
-private void printInfo(){
-    System.out.println("Hello " + this.name + " Your age is " + this.age + " years.");
-}
-
-public void printInfo(int age){
-    System.out.println(this.name + "'s age is " + this.age);
-}
-
-public void printInfo(String name){
-    System.out.println(this.name + " is of " + this.age + " years old.");
-}
-
-Student( String name, int age) {
-    if (age < 10){
-        age = 0;
-    } else {
-        age = age;
+class Animal{
+int legs;
+    Animal(){
+        System.out.println("A new Animal class object is created");
     }
-    this.name = name;
-    System.out.println("A new object Naming " + name + " & of Age " + age + " has been created" );
+    public void hello(String name){
+System.out.println("hello " + legs);
 }
-
-// Student() {
-
-//     System.out.println("A new object Naming " + name + " & of Age " + age + " has been created" );
-// }
-}
-
-class Try{
-    public static void main(String[] args){
-Student s1 = new Student("Gursewak Singh", 19);
-// s1.name = "Gursewak Singh";
-// s1.age  = 32;
-Student s2 = new Student("Amandeep Kaur", 8);
-// Student s2 = new Student() ;
-// s2.name = "Amandeep Kaur";
-// s2.age = 31;
-
-// s1.printInfo();
+    public void sound(){
+        System.out.println("Animal can make sound");
     }
 }
 
+class Cat extends Animal{
+    int tails;
+    Cat(){
+        System.out.println("A new Cat class object is created");
+    }
+
+    public void sound(){
+        System.out.println("Cat is a one tail animal which makes a sound Meow");
+    }
+}
+
+class Dog extends Animal{
+    
+    Dog(){
+        System.out.println("A new Dog class object is created");
+       
+    }
+
+    public void sound(){
+        System.out.println("Dog is a four leg animal which Bark");
+    }
+}
+
+class RunTimePollymorphism{
+public static void main(String[] args){
+Animal a = new Animal();
+Cat c = new Cat();
+Cat c1 = new Cat();
+Dog d = new Dog();
+
+c.legs = 5;
+c.tails = 1;
+c1.legs = 4;
+c1.tails = 2;
+d.legs = 4;
+c.sound();
+c1.sound();
+d.sound();
+c1.hello(" Gursewak");
+c.hello(" Gursewak");
+d.hello(" Gursewak");
+}
+}
